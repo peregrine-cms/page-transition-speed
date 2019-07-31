@@ -2,19 +2,11 @@
 
 A simple tool to measure page transition speed with google chrome/puppeteer
 
-## Prerequisites
-
-Install puppeteer.
-
-```
-npm i puppeteer-core
-```
 ## Installing PTS
 
-npm install pts -g
+npm install @peregrinecms/page-transition-speed -g
 
 ## Running PTS
-
 
 ```
 pts <url> <targetLink>
@@ -46,4 +38,12 @@ Options:
   -t, --throttle  throttle connection               [boolean]
   -r, --repeat    repeat test x times            [default: 5]
   -s, --show      show browser                      [boolean]
+```
+
+## Prerequisites for Development
+
+Install puppeteer.
+
+```
+npm i puppeteer-core
 ```
