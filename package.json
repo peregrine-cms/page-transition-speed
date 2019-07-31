@@ -9,6 +9,10 @@
   "author": "peregrine-cms",
   "license": "Apache-2.0",
   "dependencies": {
-    "puppeteer": "^1.19.0"
+    "puppeteer": "^1.19.0",
+    "yargs": "^13.3.0"
+  },
+  "bin": {
+    "pts": "./bin/pts"
   }
 }

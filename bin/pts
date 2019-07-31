@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const pts = require('../index.js')
+
+const argv = require('yargs')
+  .usage('Usage: $0 [options] <url> <targetLink>')
+  .help('h').alias('h','help')
+  .boolean('t').alias('t', 'throttle').describe('t', 'throttle connection')
+  .default('r', 5).alias('r', 'repeat').describe('r', 'repeat test x times')
+  .boolean('s').alias('s','show').describe('s','show browser')
+  .demand(2)
+  .argv;
+
+console.log(argv)
+pts(argv._[0], argv._[1], argv.s ? false: true, argv.r ? argv.r : 5, argv.t ? true: false)
+

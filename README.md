@@ -9,21 +9,41 @@ Install puppeteer.
 ```
 npm i puppeteer-core
 ```
+## Installing PTS
+
+npm install pts -g
 
 ## Running PTS
 
 
 ```
-node index.js <protocol/domain> <url1> <url2>
+pts <url> <targetLink>
 ```
 
-The tool goes to <protocol/domain><url1> and then finds a link with `href=<url2>` and clicks it. 
+The tool opens a browser with <url> and then finds a link with `href=<url2>` and clicks it.
+If no link can be found it will output all possible links 
 
 The output is a list of 5 tries performing that click.
 
 Example:
 
 ```
-node index.js https://www.peregrine-cms.com / /content/sites/peregrine/about.html
+pts https://www.peregrine-cms.com/ /content/sites/peregrine/about.html
 ```
 
+For more command line options please use
+
+```
+pts -h
+```
+
+```
+Usage: pts [options] <url> <targetLink>
+
+Options:
+  --version       Show version number               [boolean]
+  -h, --help      Show help                         [boolean]
+  -t, --throttle  throttle connection               [boolean]
+  -r, --repeat    repeat test x times            [default: 5]
+  -s, --show      show browser                      [boolean]
+```
