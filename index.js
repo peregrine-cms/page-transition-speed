@@ -44,15 +44,26 @@ if(execute) {
             // });
           
             const linkToClick = await page.$(`a[href='${second}'`);
-            const start = new Date();
-            await linkToClick.click();
-            await page.waitForNavigation({ waitUntil: 'networkidle2' });
-            const stop = new Date();
-            result.push((stop - start));
-       }
+            if(linkToClick) {
+                const start = new Date();
+                await linkToClick.click();
+                await page.waitForNavigation({ waitUntil: 'networkidle2' });
+                const stop = new Date();
+                result.push((stop - start));
+            } else {
+                const newHrefs = await page.$$eval('a', function (anchors) {
+                    return anchors.map(anchor => anchor.getAttribute('href'));
+                });
+                console.log('link to', second,'not found on page');
+                console.log('available links:');
+                newHrefs.forEach( e => console.log(e));
+                break;
+            }
+        }
       
         await browser.close();
-      
-        console.log(result);
+        if(result.length > 0) {
+            console.log(result);
+        }
     })();
 }
