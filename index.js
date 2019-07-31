@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 let execute = true;
 
-function test(url, link, headless = true, runs = 5, throttle = false) {
+function test(url, link, cb, headless = true, runs = 5, throttle = false) {
     const first = url;
     const second = link;
 
@@ -59,7 +59,7 @@ function test(url, link, headless = true, runs = 5, throttle = false) {
 
                 await browser.close();
                 if (result.length > 0) {
-                    console.log(result);
+                    cb(result);
                 }
             } catch (error) {
                 console.error(error.message)
