@@ -1,0 +1,14 @@
+{
+  "name": "page-transition-speed",
+  "version": "0.0.1",
+  "description": "tool to measure page transition speed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "peregrine-cms",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "puppeteer": "^1.19.0"
+  }
+}
